@@ -35,7 +35,7 @@ class IntroPage extends StatelessWidget {
         // get started button
         Container(
             decoration: BoxDecoration(
-                color: Colors.deepPurple,
+                color: Colors.green[600],
                 borderRadius: BorderRadius.circular(12.0)),
             padding: const EdgeInsets.all(20.0),
             child: const Text(
