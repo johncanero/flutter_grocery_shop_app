@@ -10,7 +10,8 @@ class IntroPage extends StatelessWidget {
       children: [
         // logo
         Padding(
-          padding: const EdgeInsets.only(left: 80.0, top: 120.0, right: 80.0, bottom: 80.0),
+          padding: const EdgeInsets.only(
+              left: 80.0, top: 120.0, right: 80.0, bottom: 80.0),
           child: Image.asset('lib/images/avocado.png'),
         ),
 
@@ -26,9 +27,23 @@ class IntroPage extends StatelessWidget {
             ),
           ),
         ),
-        // fresh items everyday
 
+        // fresh items everyday
+        const Text("Fresh items everyday"),
+
+        const Spacer(),
         // get started button
+        Container(
+            decoration: BoxDecoration(
+                color: Colors.deepPurple,
+                borderRadius: BorderRadius.circular(12.0)),
+            padding: const EdgeInsets.all(20.0),
+            child: const Text(
+              "Get Started",
+              style: TextStyle(color: Colors.white),
+            )),
+
+        const Spacer(),
       ],
     ));
   }
