@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_grocery_shop_app/pages/intro_page.dart';
 
 void main() {
   runApp(const MyApp());
