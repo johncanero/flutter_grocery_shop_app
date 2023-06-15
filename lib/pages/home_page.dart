@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_grocery_shop_app/components/grocery_item_tile.dart';
+import 'package:flutter_grocery_shop_app/model/cart_model.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -16,7 +19,7 @@ class HomePage extends StatelessWidget {
             ),
             // good morning
             const Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 24.0),
+              padding: EdgeInsets.symmetric(horizontal: 24.0),
               child: Text("Good Morning!"),
             ),
 
@@ -26,7 +29,7 @@ class HomePage extends StatelessWidget {
 
             // Let's order fresh items for you
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 24.0),
+              padding: const EdgeInsets.symmetric(horizontal: 24.0),
               child: Text(
                 "Let's order fresh items for you",
                 style: GoogleFonts.montserrat(
@@ -40,14 +43,40 @@ class HomePage extends StatelessWidget {
 
             // divider
             const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 8.0),
+              padding: EdgeInsets.symmetric(horizontal: 24.0),
               child: Divider(
                 thickness: 4.0,
               ),
             ),
 
             const SizedBox(height: 24.0),
+
             // fresh items + grid
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 24.0),
+              child: Text(
+                "Fresh Items",
+                style: TextStyle(fontSize: 16.0),
+              ),
+            ),
+
+            Expanded(child: Consumer<CartModel>(
+              builder: (context, value, child) {
+                return GridView.builder(
+                  itemCount: value.shopItems.length,
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2),
+                  itemBuilder: (context, index) {
+                    return GroceryItemTile(
+                      itemName: value.shopItems[index][0],
+                      itemPrice: value.shopItems[index][1],
+                      imagePath: value.shopItems[index][2],
+                      color: value.shopItems[index][3],
+                    );
+                  },
+                );
+              },
+            )),
           ],
         ),
       ),
