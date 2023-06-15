@@ -36,8 +36,17 @@ class HomePage extends StatelessWidget {
               ),
             ),
 
-            // divider
+            const SizedBox(height: 24.0),
 
+            // divider
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 8.0),
+              child: Divider(
+                thickness: 4.0,
+              ),
+            ),
+
+            const SizedBox(height: 24.0),
             // fresh items + grid
           ],
         ),
