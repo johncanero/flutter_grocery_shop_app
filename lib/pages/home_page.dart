@@ -17,11 +17,11 @@ class HomePage extends StatelessWidget {
           context,
           MaterialPageRoute(
             builder: (context) {
-              return CartPage();
+              return const CartPage();
             },
           ),
         ),
-        child: Icon(Icons.shopping_bag),
+        child: const Icon(Icons.shopping_bag),
       ),
       body: SafeArea(
         child: Column(
